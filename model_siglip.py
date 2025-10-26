@@ -114,7 +114,7 @@ class SiglipAttention(nn.Module):
         return attn_output, attn_weights
 
 
-class SiglipMLP(nn.Module)
+class SiglipMLP(nn.Module):
     def __init__(self, config):
         super().__init__()
         self.config = config
@@ -124,7 +124,7 @@ class SiglipMLP(nn.Module)
     def forward(self, hidden_states: torch.Tensor) -> torch.Tensor:
         hidden_states = self.fc1(hidden_states)
         hidden_states = nn.functional.gelu(hidden_states, approximate="tanh")
-        hidden_sates = self.fc2(hidden_states)
+        hidden_states = self.fc2(hidden_states)
         return hidden_states
 
 class SiglipEncoderLayer(nn.Module):
